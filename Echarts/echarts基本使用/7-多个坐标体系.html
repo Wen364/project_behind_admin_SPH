@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    <style>
+        .box {
+            height: 500px;
+            width: 100%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        // 初始化 echarts 实例
+        let myChart = echarts.init(document.querySelector('.box'))
+        // console.log(myChart);
+        // 配置 echarts
+
+        // 双坐标系
+        myChart.setOption({
+            title:{
+                text:'双坐标'
+            },
+            xAxis:{
+                data:['游戏','直播','经济','娱乐']
+            },
+            yAxis:[
+            {
+                // 显示坐标轴轴线
+                axisLine:{
+                    show:true
+                },
+                // 显示坐标轴刻度
+                axisTick:{
+                    show:true
+                }
+            },
+            {
+                // 显示坐标轴轴线
+                axisLine:{
+                    show:true
+                },
+                // 显示坐标轴刻度
+                axisTick:{
+                    show:true
+                }
+            }
+            ],
+            series:[
+                {
+                    type:'line',
+                    data:[10,20,15,30],
+                    //  让其使用的是索引值为 0 的 y轴
+                    yAxisIndex:0
+                },
+                {
+                    type:'bar',
+                    data:[20,15,90,35],
+                    //  让其使用的是索引值为 1 的 y轴
+                    yAxisIndex:1
+                }
+            ]
+        })
+    </script>
+</body>
+
+</html>

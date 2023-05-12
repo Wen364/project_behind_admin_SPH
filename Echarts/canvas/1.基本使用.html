@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    canvas{
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <!-- 画布标签 h5 新增
+        默认宽高为 300*150
+        浏览器默认canvas为图片
+        必须通过标签自带的 width  和 height 来设置宽高
+        必须通过js来绘制图型
+    -->
+    <canvas id="canvas" width="600" height="400"></canvas>
+
+    <script>
+        // canvas 操作 必须通过js完成
+        // 通过 js当中的 “笔” 来完成
+        let canvas = document.querySelector('canvas')
+        // 获取画笔 通过 getContext
+        let ctx = canvas.getContext('2d')
+        // console.log(ctx);
+        // 绘制线段
+        // 绘制起点
+        ctx.moveTo(100,100)
+        // 绘制其他点
+        ctx.lineTo(300,300)
+        ctx.lineTo(300,100)
+        // 设置图形填充的颜色
+        ctx.fillStyle = 'red'
+        // 执行填充颜色
+        ctx.fill()
+        // 设置线段的颜色 和 宽度
+        ctx.lineWidth = '5'
+        ctx.strokeStyle = 'skyblue'
+        // 连接起点与终点
+        ctx.closePath()
+        // 通过 绘制的 点 来画出来图型
+        ctx.stroke()
+
+    </script>
+</body>
+</html>

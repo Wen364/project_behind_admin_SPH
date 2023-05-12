@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    <style>
+        .box {
+            height: 500px;
+            width: 100%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        // 初始化 echarts 实例
+        let myChart = echarts.init(document.querySelector('.box'))
+        // console.log(myChart);
+        // 配置 echarts
+        myChart.setOption({
+            // 标题
+            title:{
+                text:'一个坐标系'
+            } ,
+            // x轴
+            xAxis:{
+                type:'category'
+            },
+            // y轴
+            yAxis:{
+                type:'category'
+            },
+            // 系列
+            series:[
+                // 散点图
+                {
+                    type:'scatter',
+                    // 散点图的数据
+                    data:[
+                        [10,20],
+                        [15,16],
+                        [20,30],
+                        [25,25],
+                    ]
+                }
+            ]
+        })
+    </script>
+</body>
+
+</html>

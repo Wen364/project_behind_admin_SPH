@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+</head>
+<style>
+    div{
+        height: 500px;
+        width: 500px;
+        margin: auto;
+    }
+</style>
+<body>
+    <!-- 在绘图前我们需要为 ECharts 准备一个定义了高宽的 DOM 容器 -->
+    <div></div>
+</body>
+<script>
+    let dom = document.querySelector('div')
+    // 基于准备好的dom，初始化echarts实例
+    let myChart = echarts.init(dom) 
+    // 数据集
+    let data = [
+        ['衣服',10,20,'x',30],
+        ['直播',12,22,'y',50],
+        ['游戏',16,16,'z',20],
+        ['电影',18,41,'w',60],
+    ]
+
+    myChart.setOption({
+        // 设置字符集
+        dataset:{
+            source:data
+        },
+        // 标题
+        title:{
+            // 主标题
+            text:'Echarts 入门实例',
+            // 子标题
+            subtext:'echarts基本使用',
+            // 设置标题位置
+            left:'right'
+        },
+        // x轴配置对象
+        xAxis:{
+            // 数据
+            data:['衣服', '直播', '游戏', '电影', ]
+        },
+        // y轴配置对象
+        yAxis:{
+            axisLine:{
+                // 显示y轴坐标轴
+                show:true
+            },
+            axisTick:{
+                // 显示坐标轴刻度
+                show:true
+            }    
+        },
+        // 系列的设置  绘制什么样类型的图表，和数据的展示
+        series:[
+            // 柱状图
+            {
+                // 图表类型设置  bar：柱状图  pie：饼图   line：折线图
+                type: 'bar',
+                name: '销量',
+                // 控制颜色
+                color:'red',
+                encode:{
+                    y:1
+                }
+            },
+            // 折线图
+            {
+                type:'line',
+                color:'skyblue',
+                encode:{
+                    y:2
+                }
+            },
+            // 饼图
+            {
+                type:'pie',
+                // 位置
+                left:150,
+                bottom:150,
+                // 饼图的宽度与高度
+                width:150,
+                height:150,
+                // 半径
+                radius:20,
+                encode:{
+                    // 饼图旁边的文字
+                    itemName:3,
+                    value:4
+                }
+
+            }
+        ]
+        })
+</script>
+</html>

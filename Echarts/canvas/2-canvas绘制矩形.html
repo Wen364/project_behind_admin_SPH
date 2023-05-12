@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        let canvas = document.querySelector('canvas')
+        // 获取上下文
+        let ctx = canvas.getContext('2d')
+        // 绘制矩形的方式一
+        // strokeRect(距离x轴的距离，距离y轴的距离，矩形宽，矩形高)
+        // 注意：这种绘制方法，无法填充矩形颜色
+        ctx.strokeRect(100,200,100,200)
+
+        // 绘制矩形的方式二  (带有填充颜色的矩形  颜色可以替换)
+        // 注意：填充的颜色要放在绘制图形前面
+        ctx.fillStyle = 'skyblue'
+        ctx.fill()
+        ctx.fillRect(300,200,100,200)
+        
+    </script>
+</body>
+</html>

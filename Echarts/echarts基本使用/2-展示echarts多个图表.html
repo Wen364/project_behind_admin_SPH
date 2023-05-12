@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 5px auto;
+        }
+        .box1{
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+        }
+        .box2{
+            height: 500px;
+            width: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script>
+        // 初始化echarts实例
+        let myChart1 = echarts.init(document.querySelector('.box1'))
+        let myChart2 = echarts.init(document.querySelector('.box2'))
+
+        myChart1.setOption({
+        // 标题
+        title:{
+            // 主标题
+            text:'Echarts 入门实例',
+            // 子标题
+            subtext:'echarts基本使用',
+            // 设置标题位置
+            left:'right'
+        },
+        tooltip:{},
+        legend:{
+            data:['销量']
+        },
+        // x轴配置对象
+        xAxis:{
+            // 数据
+            data:['衬衫', '羊毛衫', '雪纺衫', '裤子', ]
+        },
+        // y轴配置对象
+        yAxis:{
+            axisLine:{
+                // 显示y轴坐标轴
+                show:true
+            },
+            axisTick:{
+                // 显示坐标轴刻度
+                show:true
+            }    
+        },
+        // 系列的设置  绘制什么样类型的图表，和数据的展示
+        series:[
+            {
+                // 图表类型设置  bar：柱状图  pie：饼图   line：折线图
+                type: 'bar',
+                name: '销量',
+                // 控制颜色
+                color:'red',
+                data: [5, 20, 36, 10, 10, 20]
+            }
+        ]
+        })
+
+        myChart2.setOption({
+            title:{
+                text:'折线图',
+                left:'center',
+                textStyle:{
+                    color:'skyblue'
+                },
+                subtext:'子标题',
+                subtextStyle:{
+                    color:'purple'
+                }
+            },
+            // x轴
+            xAxis:{
+                data:['星期一','星期二','星期三','星期四','星期五','星期六','星期日']
+            },
+            yAxis:{},
+            series:[
+                {
+                    type:'line',
+                    data:[10,20,15,30,25,30,35],
+                    color:'skyblue'
+                }
+            ]
+        })
+    </script>
+</body>
+</html>

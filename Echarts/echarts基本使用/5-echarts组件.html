@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    <style>
+        .box {
+            height: 500px;
+            width: 100%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        // 初始化 echarts 实例
+        let myChart = echarts.init(document.querySelector('.box'))
+        // console.log(myChart);
+        // 配置 echarts
+        myChart.setOption({
+            title: {
+                text: '测试'
+            },
+            xAxis: {
+                data: ['游戏', '电影', '直播']
+            },
+            yAxis: {
+                // data:[]
+            },
+            series: [
+                {
+                    name: '柱状图',
+                    type: 'bar',
+                    data: [20, 30, 40]
+                },
+                {
+                    name: '折线图',
+                    type: 'line',
+                    data: [30, 40, 50],
+                    color: 'skyblue'
+                }
+            ],
+            // 提示组件 tooltip
+            tooltip: {
+                textStyle: {
+                    color: 'red'
+                }
+            },
+            // 提示组件
+            legend: {
+                data: ['柱状图', '折线图']
+            },
+
+            // 布局 
+            grid:{
+                left:30,
+                right:0
+            },
+
+            // 滑动缩放
+            dataZoom:[
+                {
+                    type:'slider'
+                }
+            ],
+
+            // 工具栏
+            toolbox: {
+                show: true,
+                feature: {
+                    // 数据区域缩放 （只支持直角坐标系的缩放）
+                    dataZoom: {
+                        yAxisIndex: "none",
+                        title:{
+                            zoom:'区域缩放',
+                            back:'区域缩放还原'
+                        }
+                    },
+                    // 数据视图
+                    dataView: {
+                        readOnly: false,
+                        title:'数据视图',
+                        lang:['数据视图','关闭','刷新']
+                    },
+                    // 动态类型切换
+                    magicType: {
+                        type: ["bar", "line"],
+                        title:{
+                            line:'切换为折线图',
+                            bar:'切换为柱形图'
+                        }
+                    },
+                    // 配置项还原
+                    restore: {
+                        title:'还原'
+                    },
+                    // 下载图片
+                    saveAsImage: {
+                        title:'保存为图片'
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

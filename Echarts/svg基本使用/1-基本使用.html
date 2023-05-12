@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .box{
+        width: 800px;
+        height: 400px;
+    }
+</style>
+<body>
+    <!-- svg 双闭合标签  默认宽度*高度 300*150 svg绘制图形务必在svg标签内部使用绘制图形-->
+    <svg class="box">
+
+        <!-- 绘制直线 -->
+        <!-- x1 y1 第一个点的坐标   x2  y2  第二个点的坐标 -->
+        <line x1="100"  y1="100" x2="200" y2="200" stroke="red"></line>
+        <line x1="100" y1="200" x2="200" y2="100" stroke="skyblue"></line>
+
+        <!-- 绘制折线 可以多个点，多个点的时候，最好带 逗号 -->
+        <polyline points="300 300 50 100 120 400" fill-opacity="0" stroke="red"></polyline>
+
+        <!-- 绘制矩形  -->
+        <!-- fill:设置填充颜色   fill-opacity  设置颜色透明度 -->
+        <rect x="300" y="300" width="100" height="100" fill="pink"></rect>
+
+        <!-- 绘制圆形 -->
+        <circle cx="370" cy="95" r="50" style="stroke:skyblue;fill:none"></circle>
+
+        <!-- 椭圆 -->
+
+        <!-- 不想写了，去浏览器查吧 -->
+
+    </svg>
+</body>
+</html>
